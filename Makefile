@@ -2,7 +2,10 @@
 
 docker: docker-image
 
-docker-image: docker-image-simulator docker-image-orvd
+docker-image:docker-image-simulator-base docker-image-simulator docker-image-orvd
+
+docker-image-simulator-base:
+	docker build -f simulator-base.Dockerfile -t simulator-base ./
 
 docker-image-simulator:
 	docker build ./ -t simulator
